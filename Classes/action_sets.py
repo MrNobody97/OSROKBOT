@@ -25,31 +25,37 @@ class ActionSets:
     
     def scout_explore(self):
         machine = self.create_machine()
-        machine.add_state("explorenight", FindAndClickImageAction('Media/explorenight.png', offset_y=25), "openmsgs", "exploreday")
         
-        machine.add_state("exploreday", FindAndClickImageAction('Media/explore.png', delay=1, offset_y=25), "openmsgs", "explorenight")
+        machine.add_state("help", FindAndClickImageAction('Media/alliancehelp.png'), "explorenight", "explorenight")
+        machine.add_state("explorenight", FindAndClickImageAction('Media/explorenight.png', offset_y=30), "error", "explorenight1")
+        machine.add_state("explorenight1", FindAndClickImageAction('Media/scoutnew.png', offset_y=20), "emptyreport1", "exploreday")
+        machine.add_state("exploreday", FindAndClickImageAction('Media/explore.png', delay=2, offset_y=30), "error", "help")
+
+        machine.add_state("error", FindAndClickImageAction('Media/error.png', delay=2, offset_y=300), "help", "openmsgs")
+
+        machine.add_state("emptyreport1", PressKeyAction('escape', delay=2), "help")
 
         machine.add_state("openmsgs", PressKeyAction('z'), "reportactive")
         machine.add_state("reportactive", ManualClickAction(27,8,delay=.2), "explorationreport")
         machine.add_state("explorationreport", FindAndClickImageAction('Media/explorationreport.png',delay=.2), "villagereport", "explorationreportactive")
         machine.add_state("explorationreportactive", FindAndClickImageAction('Media/explorationreportactive.png',delay=.2), "villagereport", "explorationreport")
 
-        machine.add_state("villagereport", FindAndClickImageAction('Media/villagereport.png', offset_x=370,delay=0), "checkexploredvillage", "barbreport")
+        machine.add_state("villagereport", FindAndClickImageAction('Media/villagereport.png', offset_x=400,delay=0), "checkexploredvillage", "barbreport")
         machine.add_state("checkexploredvillage", FindAndClickImageAction('Media/reportbanner.png', delay=0), "barbreport", "clickmonument")
 
-        machine.add_state("barbreport", FindAndClickImageAction('Media/barbreport.png', offset_x=370,delay=0), "checkexploredbarb", "barbreport2")
+        machine.add_state("barbreport", FindAndClickImageAction('Media/barbreport.png', offset_x=400,delay=0), "checkexploredbarb", "barbreport2")
         machine.add_state("checkexploredbarb", FindAndClickImageAction('Media/reportbanner.png', delay=0), "barbreport2", "clickmonument")
 
-        machine.add_state("barbreport2", FindAndClickImageAction('Media/barbreport2.png', offset_x=370,delay=0), "checkexploredbarb2", "passreport")
+        machine.add_state("barbreport2", FindAndClickImageAction('Media/barbreport2.png', offset_x=400,delay=0), "checkexploredbarb2", "passreport")
         machine.add_state("checkexploredbarb2", FindAndClickImageAction('Media/reportbanner.png', delay=0), "passreport", "clickmonument")
         
-        machine.add_state("passreport", FindAndClickImageAction('Media/passreport.png', offset_x=370,delay=0), "checkexploredpass", "holyreport")
+        machine.add_state("passreport", FindAndClickImageAction('Media/passreport.png', offset_x=400,delay=0), "checkexploredpass", "holyreport")
         machine.add_state("checkexploredpass", FindAndClickImageAction('Media/reportbanner.png', delay=0), "holyreport", "clickmonument")
 
-        machine.add_state("holyreport", FindAndClickImageAction('Media/holyreport.png', offset_x=370,delay=0), "checkexploredholy", "cavereport")
+        machine.add_state("holyreport", FindAndClickImageAction('Media/holyreport.png', offset_x=400,delay=0), "checkexploredholy", "cavereport")
         machine.add_state("checkexploredholy", FindAndClickImageAction('Media/reportbanner.png', delay=0), "cavereport", "clickmonument")
 
-        machine.add_state("cavereport", FindAndClickImageAction('Media/cavereport.png', offset_x=300, offset_y=20,delay=.1), "checkexploredcave", "emptyreport")
+        machine.add_state("cavereport", FindAndClickImageAction('Media/cavereport.png', offset_x=320, offset_y=20,delay=.1), "checkexploredcave", "emptyreport")
         machine.add_state("checkexploredcave", FindAndClickImageAction('Media/reportbanner.png', delay=.1), "emptyreport", "clickcave")
         machine.add_state("clickcave", ManualClickAction(50,54,delay=2), "investigateaction")
         machine.add_state("investigateaction", FindAndClickImageAction('Media/investigateaction.png',delay=.2), "sendactioncave","investigateaction")
@@ -65,7 +71,8 @@ class ActionSets:
 
         machine.add_state("emptyreport", PressKeyAction('escape'), "failexplorenight")
         machine.add_state("failexplorenight", FindAndClickImageAction('Media/explorenight.png', offset_y=25), "exploreicon", "failexploreday")
-        machine.add_state("failexploreday", FindAndClickImageAction('Media/explore.png', offset_y=25), "exploreicon", "failexplorenight")
+        machine.add_state("failexploreday", FindAndClickImageAction('Media/explore.png', offset_y=25), "exploreicon", "failexplorenight1")
+        machine.add_state("failexplorenight1", FindAndClickImageAction('Media/scoutnew.png', offset_y=25), "emptyreport1", "emptyreport1")
 
         machine.add_state("exploreicon", FindAndClickImageAction('Media/exploreicon.png',delay=.4), "exploreaction", "failexplorenight")
         machine.add_state("exploreaction", FindAndClickImageAction('Media/exploreaction.png',delay=1), "exploreactionfog", "exploreaction")
@@ -76,8 +83,8 @@ class ActionSets:
         machine.add_state("sendaction", FindAndClickImageAction('Media/sendaction.png',delay=1.2, retard=1), "sendactioncheck", "sendactioncheck")
         machine.add_state("sendactioncheck", FindAndClickImageAction('Media/sendaction.png',delay=1.2, retard=1), "sendaction", "backtocity")
 
-        machine.add_state("backtocity", PressKeyAction('space'),"explorenight")
-        machine.set_initial_state("explorenight")
+        machine.add_state("backtocity", PressKeyAction('space'),"help")
+        machine.set_initial_state("help")
         return machine
     
 
