@@ -1,9 +1,12 @@
-
 # OSROKBOT - Open Source Rise of Kingdoms Bot
 
 OSROKBOT is a highly customizable, open-source bot for Rise of Kingdoms. Utilizing state machines and image detection, it provides a powerful platform for automation within the game. It is designed to be scalable, working with any 16:9 ratio screen.
 
 This bot is not intended for mainstream users as it requires setup and likely some thinkering with the project. More than anything, this project should be a fun example for developers to play with.
+## Alert
+
+I'm not a developer, I took these scripts and I'm trying to make them work.
+This program was developed entirely by [GabrielAgrela](https://github.com/GabrielAgrela/OSROKBOT)
 
 ## Actions
 
