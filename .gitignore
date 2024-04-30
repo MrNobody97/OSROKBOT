@@ -1,7 +1,6 @@
 # .gitignore
 
 # Ignore Python compiled files
-.env
 /*.png
 Classes/__pycache__/
 Classes/Actions/__pycache__/
