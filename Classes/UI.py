@@ -155,7 +155,7 @@ class UI(QtWidgets.QWidget):
         self.action_set_combo_box.setStyleSheet("""
             color: #fff;
         """)
-        self.action_set_names = ["scout_explore", "lyceum"]
+        self.action_set_names = ["scout_explore", "lyceum", "lyceumMid"]
         self.action_set_combo_box.addItems(self.action_set_names)
 
         # Checkbutton for captcha
