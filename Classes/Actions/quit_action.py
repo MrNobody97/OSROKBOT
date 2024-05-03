@@ -1,7 +1,6 @@
 from Actions.action import Action
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from Actions.action import Action
 import time
 
 class QuitAction(Action):

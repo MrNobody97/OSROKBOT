@@ -7,7 +7,6 @@ from Actions.manual_click_action import ManualClickAction
 from Actions.manual_move_action import ManualMoveAction
 import time
 from termcolor import colored
-import os
 import csv 
 from global_vars import GlobalVars
 from Actions.check_color_action import CheckColorAction

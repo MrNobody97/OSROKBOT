@@ -1,7 +1,6 @@
 import time
 from Actions.action import Action
 from window_handler import WindowHandler
-import time
 from colorsys import rgb_to_hsv
 
 class CheckColorAction(Action):

@@ -37,12 +37,12 @@ class FindGemAction(Action):
             
             # Simulate pressing the arrow key for 'duration' seconds
             for x in range(1, duration+1):
-                #pyautogui.keyDown(key)
+                pyautogui.keyDown(key)
                 time.sleep(sleeptime)
-                #pyautogui.keyUp(key)
+                pyautogui.keyUp(key)
                 if (FindAndClickImageAction('Media/gemdepo.png').perform() or FindAndClickImageAction('Media/gemdepo1.png').perform() or FindAndClickImageAction('Media/gemdepo2.png').perform()):
                     found+=1
                     print("found ", found)
             
             print(duration)
-            
+            return
