@@ -1,5 +1,6 @@
 import sys
 from PyQt5 import QtWidgets, QtGui, QtCore
+
 from action_sets import ActionSets
 from OS_ROKBOT import OSROKBOT
 import pygetwindow as gw
@@ -154,7 +155,7 @@ class UI(QtWidgets.QWidget):
         self.action_set_combo_box.setStyleSheet("""
             color: #fff;
         """)
-        self.action_set_names = ["scout_explore", "lyceum", "lyceumMid", "loharjr", "farm_gems", "farm_barb_all"]
+        self.action_set_names = ["farm_rss_new","farm_rss","farm_food","farm_wood","farm_stone","farm_gold", "farm_barb","farm_barb_all", "lyceum", "lyceumMid"]
         self.action_set_combo_box.addItems(self.action_set_names)
 
         # Checkbutton for captcha

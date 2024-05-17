@@ -2,7 +2,6 @@ import time
 from Actions.action import Action
 from window_handler import WindowHandler
 import pyautogui
-
 class ManualMoveAction(Action):
     def __init__(self,x=50,y=50, delay=0, remember_position=False, retard=0.0):
         self.window_handler = WindowHandler()

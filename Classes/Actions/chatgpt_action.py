@@ -16,6 +16,7 @@ class ChatGPTAction(Action):
         
         load_dotenv()
         openai.api_key = os.getenv('OPENAI_KEY')
+        openai.base_url = "https://zukijourney.xyzbot.net/v1/"
         self.message = ""
         self.midterm = midterm
         self.delay = delay
@@ -59,7 +60,7 @@ class ChatGPTAction(Action):
         print("\n\n")
         self.messages.append({"role": "user", "content": (self.message)},)
         chat = openai.chat.completions.create(
-            model="gpt-4-1106-preview",
+            model="gpt-4",
             temperature=.1,
             messages=self.messages,
             functions=self.functions,

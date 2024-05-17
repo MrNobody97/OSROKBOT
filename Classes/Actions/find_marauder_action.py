@@ -1,6 +1,7 @@
 from Actions.action import Action
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from Actions.action import Action
 from window_handler import WindowHandler
 from Actions.find_and_click_image_action import FindAndClickImageAction
 import pyautogui 
